@@ -1,0 +1,25 @@
+{
+  "name": "hyte-server-example-26",
+  "version": "1.0.0",
+  "description": "Opettajan tuntiesimerkkejä",
+  "license": "ISC",
+  "author": "mattpe",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.0.0",
+    "nodemon": "^3.1.11",
+    "prettier": "3.7.4"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
