@@ -1,13 +1,24 @@
-
-
 /* PERUS */
 * {
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* MAIN */
+main {
+  flex: 1;
 }
 
 .container {
@@ -51,7 +62,7 @@ nav a {
   font-size: 14px;
 }
 
-/* HERO (ILMAN KUVA, MUTTA RESPONSIIIVINEN) */
+/* HERO */
 .hero {
   min-height: 320px;
   margin: 24px 0;
@@ -81,7 +92,7 @@ footer {
   background: #1f2a33;
   color: white;
   padding: 20px 0;
-  margin-top: 30px;
+  margin-top: auto;
 }
 
 /* BREAKPOINT: TABLET */
@@ -126,4 +137,3 @@ footer {
     font-size: 22px;
   }
 }
-

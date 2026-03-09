@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="SanitasDiary - Päiväkirja">
+    
+    <title>SanitasDiary - Päiväkirja</title>
+    
+    <!-- Fontit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/src/css/style.css">
+    
+    <style>
+        
+        .diary-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .diary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .add-entry-btn {
+            background-color: rgb(86, 210, 216);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .add-entry-btn:hover {
+            opacity: 0.8;
+        }
+        
+        .login-message {
+            text-align: center;
+            padding: 50px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            margin: 40px auto;
+        }
+        
+        .login-message a {
+            color: rgb(86, 210, 216);
+            font-weight: 600;
+        }
+        
+        .login-message a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- navi -->
+    <nav>
+        <ul>
+            <li><a href="index.html" id="logo">SanitasDiary</a></li>
+            <li><a href="index.html" class="navlink">Etusivu</a></li>
+            <li><a href="bmi.html" class="navlink">BMI laskuri</a></li>
+            <li><a href="paivakirja.html" class="navlink selected">Päiväkirja</a></li>
+        </ul>
+    </nav>
+
+    <!-- Pääsisältö -->
+    <main>
+        <div class="diary-container">
+            <div class="diary-header">
+                <h1 class="main_cl">Terveyspäiväkirja</h1>
+            </div>
+            
+            <div class="login-message">
+                <h2 class="main_cl">Kirjaudu sisään</h2>
+                <p>Kirjaudu sisään käyttääksesi päiväkirjaa.</p>
+                <p><a href="login.html">Kirjaudu tästä</a></p>
+            </div>
+        </div>
+    </main>
+
+    
+    <footer>
+        <p>&copy; 2026 SanitasDiary</p>
+        <p>Kaikki oikeudet pidätetään</p>
+    </footer>
+</body>
+</html>
+
+<!-- Tekoälyä on hyödynetty koodissa -->

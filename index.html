@@ -1,45 +1,73 @@
-<!--tekoälyä on käytetty tähän tiedostoon. -->
-
 <!DOCTYPE html>
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="SanitasDiary - Seuraa terveyttäsi helposti ja turvallisesti.">
+    
     <title>SanitasDiary - Etusivu</title>
-    <link rel="stylesheet" href="/src/css/styles.css" />
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/src/css/style.css">
 </head>
 <body>
+    <!-- navi -->
+    <nav>
+        <ul>
+            <li><a href="index.html" id="logo">SanitasDiary</a></li>
+            <li><a href="index.html" class="navlink selected">Etusivu</a></li>
+            <li><a href="bmi.html" class="navlink">BMI laskuri</a></li>
+            <li><a href="paivakirja.html" class="navlink">Päiväkirja</a></li>
+        </ul>
+    </nav>
 
-<header>
-    <div class="container">
-        <div class="header-content">
-            <div class="logo">Sanitas<span>Diary</span></div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Etusivu</a></li>
-                    <li><a href="palvelut.html">Palvelut</a></li>
-                    <li><a href="tietoa.html">Tietoa meistä</a></li>
-                    <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
-                    <li><a href="asiakaspalvelu.html">Asiakaspalvelu</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
+    <!-- Hero-kuva -->
+    <div id="taustakuva"></div>
 
-<main class="container">
-    <section class="hero">
-        <h1>Tervetuloa SanitasDiaryyn</h1>
-        <p>Seuraa terveyttäsi helposti ja turvallisesti.</p>
-    </section>
-</main>
+    <!-- Pääsisältö -->
+    <main>
+        <!-- Info-alue -->
+        <section class="info-area">
+            <div id="info-text">
+                <h1>Tervetuloa SanitasDiaryyn</h1>
+                <p class="light_font">Seuraa terveyttäsi helposti ja turvallisesti.</p>
+            </div>
+        </section>
 
-<footer>
-    <div class="container">
+        <!-- ominaisuudet -->
+        <section class="about-us">
+            <div class="card-inside">
+                <h2 class="main_cl">Miksi SanitasDiary?</h2>
+                <p>Pidä päiväkirjaa terveydestäsi, seuraa painoindeksiäsi ja tallenna tärkeät mittaukset.</p>
+                <p>➤ Helppokäyttöinen päiväkirja</p>
+                <p>➤ BMI-laskuri</p>
+                <p>➤ Terveysdatasi tallessa</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
         <p>&copy; 2026 SanitasDiary</p>
         <p>Kaikki oikeudet pidätetään</p>
-    </div>
-</footer>
+    </footer>
 
+    <script>
+        // tarkistetaan onks käyttäjä kirjautunut
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = localStorage.getItem('username');
+            if (username) {
+                document.getElementById('usernameDisplay').textContent = username;
+            }
+        });
+    </script>
 </body>
 </html>
+
+<!-- Tekoälyä on hyödynetty koodissa -->

@@ -1,121 +1,260 @@
 import '../css/api.css';
-import {
-  getItems,
-  getItemById,
-  deleteItemById,
-  addItem,
-  updateItemById,
-  loadItemToPutForm,
-} from './items';
 
-console.log('Scripti starttaa');
+// API:n perusosoite
+const API_URL = 'http://localhost:3000/api';
 
-// sync ja asyc ajatus ja demo
+// Apufunktio tokenin hakemiseen
+const getToken = () => localStorage.getItem('token');
 
-// function synchronousFunction() {
-//   let number = 1;
-//   for (let i = 1; i < 10000; i++) {
-//     number += i;
-//     console.log('synchronousFunction running');
-//   }
-//   console.log('regular function complete', number);
-// }
+// Apufunktio auth-headereiden luomiseen
+const getAuthHeaders = () => ({
+  'Content-Type': 'application/json',
+  'Authorization': `Bearer ${getToken()}`
+});
 
-// synchronousFunction();
+// ============================================
+// KÄYTTÄJÄT
+// ============================================
 
-console.log('Valmis');
+// Rekisteröinti
+export const registerUser = async (username, password, email) => {
+  try {
+    const response = await fetch(`${API_URL}/users`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password, email })
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Rekisteröinti virhe:', error);
+    throw error;
+  }
+};
 
-// synkroninen
-// console.log('1');
-// console.log('2');
-// console.log('3');
+// Kirjautuminen
+export const loginUser = async (username, password) => {
+  try {
+    const response = await fetch(`${API_URL}/users/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+    const data = await response.json();
+    if (response.ok && data.token) {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('username', username);
+    }
+    return data;
+  } catch (error) {
+    console.error('Kirjautuminen virhe:', error);
+    throw error;
+  }
+};
 
-// async suoritus
+// Haetaan oma käyttäjä
+export const getCurrentUser = async () => {
+  try {
+    const response = await fetch(`${API_URL}/users/me`, {
+      headers: getAuthHeaders()
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Käyttäjän haku virhe:', error);
+    throw error;
+  }
+};
 
-// console.log('1');
+// Haetaan kaikki käyttäjät (vain admin)
+export const getAllUsers = async () => {
+  try {
+    const response = await fetch(`${API_URL}/users`, {
+      headers: getAuthHeaders()
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Käyttäjien haku virhe:', error);
+    throw error;
+  }
+};
 
-// setTimeout(() => {
-//   console.log('2');
-// }, 4000);
+// ============================================
+// PÄIVÄKIRJAMERKINNÄT
+// ============================================
 
-// console.log('3');
+// Haetaan kaikki merkinnät
+export const getAllEntries = async () => {
+  try {
+    const response = await fetch(`${API_URL}/entries`, {
+      headers: getAuthHeaders()
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Merkintöjen haku virhe:', error);
+    throw error;
+  }
+};
 
-// GET
-// eka haku ulkoiseen rajapintaan
-// tämä on fetch käyttäen promisea (eli lupausta)
-// ja ON asykroninen
+// Haetaan yksi merkintä
+export const getEntryById = async (id) => {
+  try {
+    const response = await fetch(`${API_URL}/entries/${id}`, {
+      headers: getAuthHeaders()
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Merkinnän haku virhe:', error);
+    throw error;
+  }
+};
 
-// fetch('https://api.restful-api.dev/objects')
-//   .then((response) => {
-//     console.log(response);
-//     if (!response.ok) {
-//       throw new Error('Verkkovastaus ei ollut kunnossa');
-//     }
-//     return response.json();
-//   })
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((error) => {
-//     console.error('Fetch-operaatiossa ilmeni ongelma:', error);
-//   });
+// Lisää uusi merkintä
+export const addEntry = async (entryData) => {
+  try {
+    const response = await fetch(`${API_URL}/entries`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(entryData)
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Merkinnän lisäys virhe:', error);
+    throw error;
+  }
+};
 
-// Yksikertaistetaan ja modernisoidaan haku
-// käytettän async ja await avainsanoja
+// Poista merkintä
+export const deleteEntry = async (id) => {
+  try {
+    const response = await fetch(`${API_URL}/entries/${id}`, {
+      method: 'DELETE',
+      headers: getAuthHeaders()
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Merkinnän poisto virhe:', error);
+    throw error;
+  }
+};
 
-// async function getData() {
-//   try {
-//     const response = await fetch('https://api.restful-api.dev/objects');
-//     const data = await response.json();
-//     console.log(data);
-//   } catch (error) {
-//     console.error('Virhe:', error);
-//   }
-// }
+// ============================================
+// ITEMS (harjoituksia varten)
+// ============================================
 
-//getData();
+export const getItems = async () => {
+  try {
+    const response = await fetch(`${API_URL}/items`);
+    const data = await response.json();
+    console.log('Haetaan omasta rajapinnasta!!!');
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error('Virhe:', error);
+  }
+};
 
-// ensimmäinen oma kutsu BE puolelle
+export const getItemById = async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const id = formData.get('id');
+  try {
+    const response = await fetch(`${API_URL}/items/${id}`);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Virhe:', error);
+  }
+};
 
-// const consoleLogItems = async () => {
-//   try {
-//     // default on GET kutsu ilman optiota
-//     const response = await fetch('http://localhost:3000/api/items');
-//     const data = await response.json();
-//     console.log('Haetaan omasta rajapinnasta!!!');
-//     console.log(data);
+export const deleteItemById = async () => {
+  const id = prompt('Anna poistettavan id:');
+  if (!id) return;
+  try {
+    const response = await fetch(`${API_URL}/items/${id}`, {
+      method: 'DELETE'
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Virhe:', error);
+  }
+};
 
-//     data.forEach((rivi) => {
-//       console.log(rivi);
-//       console.log(rivi.name);
-//     });
-//   } catch (error) {
-//     console.error('Virhe:', error);
-//   }
-// };
+export const addItem = async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const name = formData.get('name');
+  const weight = formData.get('weight');
+  try {
+    const response = await fetch(`${API_URL}/items`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, weight })
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Virhe:', error);
+  }
+};
 
-// consoleLogItems();
+export const loadItemToPutForm = async () => {
+  const id = prompt('Anna muokattavan id:');
+  if (!id) return;
+  try {
+    const response = await fetch(`${API_URL}/items/${id}`);
+    const item = await response.json();
+    console.log('Ladataan muokkaukseen:', item);
+    // Täytetään formi
+    document.querySelector('#put-id').value = item.id;
+    document.querySelector('#put-name').value = item.name;
+    document.querySelector('#put-weight').value = item.weight;
+  } catch (error) {
+    console.error('Virhe:', error);
+  }
+};
 
-//getItems();
+export const updateItemById = async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const id = formData.get('id');
+  const name = formData.get('name');
+  const weight = formData.get('weight');
+  try {
+    const response = await fetch(`${API_URL}/items/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, weight })
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Virhe:', error);
+  }
+};
 
-// hakekaa nappula
-// lisätkää kuuntelija suorittakaa klikatessa getItems funktio
-const getItemsBtn = document.querySelector('.get_items');
-getItemsBtn.addEventListener('click', getItems);
+// ============================================
+// ALUSTUS
+// ============================================
 
-const getForm = document.querySelector('.get-item-form');
-getForm.addEventListener('submit', getItemById);
+console.log('API scripti starttaa');
 
-const deleteBtn = document.querySelector('.delete-item');
-deleteBtn.addEventListener('click', deleteItemById);
+// Napin kuuntelijat jos ne on olemassa
+document.addEventListener('DOMContentLoaded', () => {
+  const getItemsBtn = document.querySelector('.get_items');
+  if (getItemsBtn) getItemsBtn.addEventListener('click', getItems);
 
-// Etsitään formi, ei itse nappulaa ja tutkitaan SUBMIT eventtiä
-const addItemForm = document.querySelector('.add-item-form');
-addItemForm.addEventListener('submit', addItem);
+  const getForm = document.querySelector('.get-item-form');
+  if (getForm) getForm.addEventListener('submit', getItemById);
 
-// PUT lisäykset KOTITEHTÄVÄKSI
-const loadItemBtn = document.querySelector('.load-item');
-loadItemBtn.addEventListener('click', loadItemToPutForm);
+  const deleteBtn = document.querySelector('.delete-item');
+  if (deleteBtn) deleteBtn.addEventListener('click', deleteItemById);
 
-const putForm = document.querySelector('.put-item-form');
-putForm.addEventListener('submit', updateItemById);
+  const addItemForm = document.querySelector('.add-item-form');
+  if (addItemForm) addItemForm.addEventListener('submit', addItem);
+
+  const loadItemBtn = document.querySelector('.load-item');
+  if (loadItemBtn) loadItemBtn.addEventListener('click', loadItemToPutForm);
+
+  const putForm = document.querySelector('.put-item-form');
+  if (putForm) putForm.addEventListener('submit', updateItemById);
+});

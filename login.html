@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SanitasDiary - Kirjaudu</title>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- mun style -->
+    <link rel="stylesheet" href="/src/css/style.css">
+    
+    <style>
+        .login-container {
+            max-width: 450px;
+            margin: 60px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .login-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: rgb(86, 210, 216);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: rgb(86, 210, 216);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .login-btn:hover {
+            opacity: 0.8;
+        }
+        
+        .register-link {
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .register-link a {
+            color: rgb(86, 210, 216);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .message {
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        .message.error {
+            background-color: #ffebee;
+            color: #c62828;
+            display: block;
+        }
+        
+        .message.success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigaatio -->
+    <nav>
+        <ul>
+            <li><a href="index.html" id="logo">SanitasDiary</a></li>
+            <li><a href="index.html" class="navlink">Etusivu</a></li>
+            <li><a href="bmi.html" class="navlink">BMI laskuri</a></li>
+            <li><a href="paivakirja.html" class="navlink">Päiväkirja</a></li>
+        </ul>
+    </nav>
+
+    <!-- Pääsisältö -->
+    <main>
+        <div class="login-container">
+            <h1 class="main_cl">Kirjaudu sisään</h1>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Käyttäjätunnus</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Salasana</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <button type="submit" class="login-btn">Kirjaudu</button>
+                
+                <div class="message" id="message"></div>
+            </form>
+            
+            <div class="register-link">
+                <p>Ei tunnusta? <a href="register.html">Rekisteröidy</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SanitasDiary</p>
+        <p>Kaikki oikeudet pidätetään</p>
+    </footer>
+
+    <script type="module" src="/src/js/api.js"></script>
+    <script type="module">
+        import { loginUser } from '/src/js/api.js';
+        
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const messageDiv = document.getElementById('message');
+            
+            try {
+                const result = await loginUser(username, password);
+                
+                if (result.token) {
+                    messageDiv.className = 'message success';
+                    messageDiv.textContent = 'Kirjautuminen onnistui!';
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                } else {
+                    messageDiv.className = 'message error';
+                    messageDiv.textContent = result.error || 'Virheellinen tunnus tai salasana';
+                }
+            } catch (error) {
+                messageDiv.className = 'message error';
+                messageDiv.textContent = 'Kirjautuminen epäonnistui';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- Tekoälyä on hyödynetty koodissa -->
