@@ -36,24 +36,55 @@ const postUser = async (pyynto, vastaus) => {
 
 // Tietokantaversio valmis
 const postLogin = async (req, res) => {
-  const {username, password} = req.body;
-  // haetaan käyttäjä-objekti käyttäjän nimen perusteella
-  const user = await findUserByUsername(username);
-  //console.log('postLogin user from db', user);
-  if (user) {
-    // jos asiakkaalta tullut salasana vastaa tietokannasta haettua tiivistettä, ehto on tosi
-    if (await bcrypt.compare(password, user.password)) {
-      delete user.password;
-      // generate & sign token using a secret and expiration time
-      // read from .env file
-      const token = jwt.sign(user, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN,
-      });
-      return res.json({message: 'login ok', user, token});
+  try {
+    const {username, password} = req.body;
+    console.log('1. Kirjautumisyritys käyttäjälle:', username);
+    
+    // haetaan käyttäjä-objekti käyttäjän nimen perusteella
+    console.log('2. Haetaan käyttäjä tietokannasta...');
+    const user = await findUserByUsername(username);
+    console.log('3. Käyttäjä löytyi?', user ? 'Kyllä' : 'Ei');
+    
+    if (!user) {
+      console.log('4. Käyttäjää ei löydy');
+      return res.status(404).json({error: 'user not found'});
     }
-    return res.status(403).json({error: 'invalid password'});
+    
+    console.log('5. Verrataan salasanaa...');
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    console.log('6. Salasana oikein?', passwordMatch);
+    
+    if (!passwordMatch) {
+      console.log('7. Väärä salasana');
+      return res.status(403).json({error: 'invalid password'});
+    }
+    
+    console.log('8. Salasana oikein, poistetaan salasana objektista');
+    delete user.password;
+    
+    console.log('9. Tarkistetaan JWT-asetukset...');
+    console.log('JWT_SECRET:', process.env.JWT_SECRET ? 'Asetettu' : 'PUUTTUU');
+    console.log('JWT_EXPIRES_IN:', process.env.JWT_EXPIRES_IN ? 'Asetettu' : 'PUUTTUU');
+    
+    if (!process.env.JWT_SECRET || !process.env.JWT_EXPIRES_IN) {
+      throw new Error('JWT-asetukset puuttuvat .env tiedostosta');
+    }
+    
+    console.log('10. Luodaan token...');
+    const token = jwt.sign(user, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_EXPIRES_IN,
+    });
+    
+    console.log('11. Kirjautuminen onnistui!');
+    return res.json({message: 'login ok', user, token});
+    
+  } catch (error) {
+    console.error('VIRHE KIRJAUTUMISESSA:');
+    console.error('Viesti:', error.message);
+    console.error('Nimi:', error.name);
+    console.error('Stack:', error.stack);
+    return res.status(500).json({error: error.message});
   }
-  res.status(404).json({error: 'user not found'});
 };
 
 // Get user information stored inside token

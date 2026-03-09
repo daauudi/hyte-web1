@@ -9,6 +9,10 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
+  // Lisää tämä rivi:
+  authPlugins: {
+    mysql_native_password: () => () => Buffer.from(process.env.DB_PASSWORD + '\0')
+  }
 });
 const promisePool = pool.promise();
 export default promisePool;
