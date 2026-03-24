@@ -1,4 +1,4 @@
-#  Robot Framework tehtävä 1
+#  Tehtävä 1 Robot Framework 
 
 ###  Ympäristön asennus
 
@@ -23,7 +23,7 @@ Testi suoritettiin komennolla: python tests/asennustesti.py
  -Ymmärsin paremmin miten python-ympäristöt toimii
 
 
-## tehtävä 2 GUI-testaus
+## Tehtävä 2 GUI-testaus
 
 ### Mitä tehtiin
 - Käytettiin Robot Frameworkia ja Browser-kirjastoa
@@ -45,10 +45,10 @@ GUI-testaus onnistui ja testit myös (PASS).
 - Testien tekeminen oli helppoa valmiilla keywordeilla
 
 
-GUI-testaus onnistui ja testit menivät läpi (PASS).
 
 
-## tehtävä 3 
+
+## Tehtävä 3  Tietojen salaus ja piilottaminen
 
 ### Mitä tehtiin
 - Luotiin `.env`-tiedosto
