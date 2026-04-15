@@ -1,0 +1,41 @@
+{"level":30,"time":"2026-04-14T14:06:11.709Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Listening on 127.0.0.1:55407"}
+{"level":30,"time":"2026-04-14T14:06:12.000Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-14T14:06:13.246Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Adding browser to stack: chromium, version: 145.0.7632.6"}
+{"level":30,"time":"2026-04-14T14:06:13.248Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-14T14:06:13.249Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-14T14:06:13.270Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-14T14:06:13.272Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@8a3aeb108bf334792a472d8a6b800d3d\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=1716ada3-a8eb-4cbd-9f29-3560be0a391f\"}"}
+{"level":30,"time":"2026-04-14T14:06:13.314Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Setting default timeout for context context=e824c7de-7f79-42c2-9e1e-c476daa4f0a5 to 10000"}
+{"level":30,"time":"2026-04-14T14:06:13.314Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Changed active context: context=e824c7de-7f79-42c2-9e1e-c476daa4f0a5"}
+{"level":30,"time":"2026-04-14T14:06:13.924Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-14T14:06:13.924Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Changed active page"}
+{"level":30,"time":"2026-04-14T14:06:14.498Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-14T14:06:14.596Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-14T14:06:14.597Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Strict mode is enabled, find Locator with [name=\"my-text\"] in page."}
+{"level":30,"time":"2026-04-14T14:06:16.283Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Removed page=28616140-6a6e-4481-8620-3b8b183bca17 from context=e824c7de-7f79-42c2-9e1e-c476daa4f0a5 page stack"}
+================= Original suppressed error =================
+locator.type: Target page, context or browser has been closed
+Call log:
+[2m  - waiting for locator('[name="my-text"]')[22m
+[2m    - locator resolved to <input type="text" name="my-text" id="my-text-id" myprop="myvalue" class="form-control"/>[22m
+[2m  - elementHandle.type("somebody@example.com")[22m
+
+    at typeText (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:12284:17)
+    at async PlaywrightServer.typeText (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:13635:28)
+=============================================================
+{"level":30,"time":"2026-04-14T14:06:16.286Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Error of node method  typeText"}
+================= Original suppressed error =================
+{"level":30,"time":"2026-04-14T14:06:16.301Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method takeScreenshot"}
+Error: Tried to take screenshot, but no page was open.
+    at exists (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:11096:11)
+    at takeScreenshot (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:11152:3)
+    at PlaywrightServer.takeScreenshot (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:13635:34)
+    at Object.onReceiveHalfClose (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+=============================================================
+{"level":30,"time":"2026-04-14T14:06:16.302Z","pid":27544,"hostname":"LAPTOP-N85A50PD","msg":"Error of node method  takeScreenshot"}

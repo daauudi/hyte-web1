@@ -1,0 +1,22 @@
+{"level":30,"time":"2026-04-14T14:50:49.427Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Listening on 127.0.0.1:49906"}
+{"level":30,"time":"2026-04-14T14:50:49.796Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-14T14:50:50.608Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Adding browser to stack: chromium, version: 145.0.7632.6"}
+{"level":30,"time":"2026-04-14T14:50:50.609Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-14T14:50:50.609Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-14T14:50:50.651Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-14T14:50:50.652Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@22f91a2c4143f780fffa83356783cab5\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=3998117e-8e14-4f97-a760-4e52eeca44bc\"}"}
+{"level":30,"time":"2026-04-14T14:50:50.698Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Setting default timeout for context context=dbb5fc15-70d9-4b4d-9f85-211a269f5a3a to 10000"}
+{"level":30,"time":"2026-04-14T14:50:50.699Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Changed active context: context=dbb5fc15-70d9-4b4d-9f85-211a269f5a3a"}
+{"level":30,"time":"2026-04-14T14:50:51.127Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-14T14:50:51.127Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Changed active page"}
+{"level":30,"time":"2026-04-14T14:50:51.501Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-14T14:50:51.511Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-14T14:50:51.512Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Strict mode is enabled, find Locator with css=form.loginForm input[name=\"username\"] in page."}
+{"level":30,"time":"2026-04-14T14:50:51.596Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-14T14:50:51.602Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-14T14:50:51.602Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Strict mode is enabled, find Locator with css=form.loginForm input[name=\"username\"] in page."}
+{"level":30,"time":"2026-04-14T14:50:51.753Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-14T14:50:51.760Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-14T14:50:51.760Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Strict mode is enabled, find Locator with css=form.loginForm input[name=\"password\"] in page."}
+{"level":30,"time":"2026-04-14T14:50:51.771Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-14T14:50:59.275Z","pid":23584,"hostname":"LAPTOP-N85A50PD","msg":"Removed page=45e9371d-67e1-44dc-b5d6-ce4bff08e9da from context=dbb5fc15-70d9-4b4d-9f85-211a269f5a3a page stack"}

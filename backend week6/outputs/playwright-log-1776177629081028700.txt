@@ -1,0 +1,37 @@
+{"level":30,"time":"2026-04-14T14:40:31.215Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"Listening on 127.0.0.1:49564"}
+{"level":30,"time":"2026-04-14T14:40:31.490Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-14T14:40:32.428Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"Adding browser to stack: chromium, version: 145.0.7632.6"}
+{"level":30,"time":"2026-04-14T14:40:32.429Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-14T14:40:32.430Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-14T14:40:32.462Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-14T14:40:32.463Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@cf0e88271caf8214f888eca96518e770\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=516c0563-de7a-4fe3-bcf6-da336fa446e7\"}"}
+{"level":30,"time":"2026-04-14T14:40:32.531Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"Setting default timeout for context context=ccbfcb74-603f-424b-b628-0f9cf0d9d33b to 10000"}
+{"level":30,"time":"2026-04-14T14:40:32.531Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"Changed active context: context=ccbfcb74-603f-424b-b628-0f9cf0d9d33b"}
+{"level":30,"time":"2026-04-14T14:40:34.183Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-14T14:40:34.184Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"Changed active page"}
+{"level":30,"time":"2026-04-14T14:40:44.202Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"Error of node method  newPage"}
+================= Original suppressed error =================
+page.goto: Timeout 10000ms exceeded.
+Call log:
+[2m  - navigating to "http://localhost:5173/login.html", waiting until "load"[22m
+
+    at newPage (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:13017:18)
+    at async PlaywrightServer.newPage (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:13635:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-14T14:40:44.228Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method takeScreenshot"}
+================= Original suppressed error =================
+Error: Tried to take screenshot, but no page was open.
+    at exists (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:11096:11)
+    at takeScreenshot (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:11152:3)
+    at PlaywrightServer.takeScreenshot (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:13635:34)
+    at Object.onReceiveHalfClose (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+=============================================================
+{"level":30,"time":"2026-04-14T14:40:44.231Z","pid":28648,"hostname":"LAPTOP-N85A50PD","msg":"Error of node method  takeScreenshot"}

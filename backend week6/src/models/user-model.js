@@ -13,13 +13,13 @@ const listAllUsers = async () => {
 // POST /api/users - add a new user
 const addUser = async (user) => {
   const {username, password, email} = user;
-  const sql = `INSERT INTO users (username, password, email)  // muutettu
+  const sql = `INSERT INTO users (username, password, email)
                VALUES (?, ?, ?)`;
   const params = [username, password, email];
+
   try {
-    const result = await promisePool.execute(sql, params);
-    //console.log('insert result', result);
-    return {user_id: result[0].insertId};
+    const [result] = await promisePool.execute(sql, params);
+    return {user_id: result.insertId};
   } catch (e) {
     console.error('error', e.message);
     return {error: e.message};

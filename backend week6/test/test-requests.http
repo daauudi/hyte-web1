@@ -1,7 +1,9 @@
 # Test HTTP requests
 ### use with: REST Client extension
+
 @apiurl = http://localhost:3000/api
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJ1c2VybmFtZSI6ImRvbmFsZDIiLCJlbWFpbCI6ImRvbmFsZDJAZXhhbXBsZS5jb20iLCJjcmVhdGVkX2F0IjoiMjAyNi0wMi0yM1QxMjowMzozNS4wMDBaIiwidXNlcl9sZXZlbCI6InJlZ3VsYXIiLCJpYXQiOjE3NzIwOTI5ODUsImV4cCI6MTc3MjE3OTM4NX0.WyWlZfBk0jIcIDfVuTu6UeSP2EhJvCiEe2vTHwH8XKI
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJ1c2VybmFtZSI6InRlc3R1c2VyIiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiY3JlYXRlZF9hdCI6IjIwMjYtMDQtMDhUMTM6MDI6MzEuMDAwWiIsInVzZXJfbGV2ZWwiOiJyZWd1bGFyIiwiaWF0IjoxNzc2MTc3NzgxLCJleHAiOjE3NzYyNjQxODF9.E0XMaZRyH2-lb6KLtSL0X8j13oh8B-3rbXEZ_xf2PtE
+
 ### GET all items
 GET {{apiurl}}/items
 
@@ -38,33 +40,25 @@ POST {{apiurl}}/users
 Content-Type: application/json
 
 {
-  "username": "diffsda",
-  "password": "duckpass",
-  "email": "dfda@example.com"
+  "username": "testuser",
+  "password": "testpass",
+  "email": "test@example.com"
 }
 
-### Register new user FAIL (email missing)
-POST {{apiurl}}/users
-Content-Type: application/json
-
-{
-  "username": "donald",
-  "password": "duck"
-}
-
-### User login
+### User login (returns token)
 POST {{apiurl}}/users/login
 Content-Type: application/json
 
 {
-  "username": "donald2",
-  "password": "duck"
+  "username": "testuser",
+  "password": "testpass"
 }
+
+### Copy token from login response above and paste to @token
 
 ### Get user info by token
 GET {{apiurl}}/users/me
 Authorization: Bearer {{token}}
-
 
 ##############################
 ### Diary entry endpoints

@@ -66,3 +66,76 @@ Testi onnistui (PASS).
 - Aluksi `.env` ei toiminut oikein
 - Ongelma ratkesi käyttämällä `load_env.py`
 - Muuttujat saatiin toimimaan Robot Frameworkissa
+
+
+## Tehtävä 4 raportit ja lokitiedostot
+
+### Mitä tehtiin
+- Tehtiin testi uuden päiväkirjamerkinnän lisäämisestä
+- Täytettiin lomake ja tallennettiin merkintä
+
+### Kommentit
+- Testattiin että merkintä voidaan lisätä
+
+
+
+## Tehtävä 5 Kirjautumistesti .env-tiedostolla
+
+### Mitä tehtiin
+- Tehtiin kirjautumistesti omalle sovellukselle
+- Käyttäjänimi ja salasana luettiin `.env`-tiedostosta
+- Testissä kirjauduttiin sisään login-lomakkeella
+
+### Komento
+-robot -d outputs login_test.robot
+
+### Kommentit
+- Tunnukset luettiin `.env` tiedostosta
+- Kirjautuminen onnistui
+- Token tallentui localStorageen
+
+
+
+
+## Tehtävä 6 kirjautumistesti cryptolibrary
+
+### Toteutus
+
+-Käyttäjänimi ja salasana salattiin komentorivillä käyttäen `python -m CryptoLibrary` -työkalua.  
+
+-Salatut arvot tallennettiin testiin `crypt:`-muodossa.
+
+## Testaus 
+
+- Testi ajettiin komennolla:
+robot -d outputs test/login_crypto_test.robot
+
+### Kommentit
+
+-Aluksi CryptoLibraryn käyttö oli epäselvää, koska se ei toimi samalla tavalla kuin tavallinen encrypt/decrypt yhdellä avaimella.  
+
+-Lopulta ratkaisu löytyi käyttämällä kirjaston omaa komentorivityökalua ja `crypt:`-arvoja.
+
+-Testi toimii oikein ja kirjautuminen onnistuu salatuilla tiedoilla.
+
+### Tehtävä 7 raportit ja lokit 
+
+### Toteutus
+
+-Testi ajettiin komennolla:
+
+
+robot -d outputs test/login_crypto_test.robot
+
+### Tulokset
+
+Ajon jälkeen outputs-kansioon tuli:
+
+- log.html  
+- report.html  
+- output.xml  
+
+### Kommentit
+
+Raportit avautuvat selaimessa ja niistä näkee helposti testin tulokset.
+

@@ -1,0 +1,45 @@
+{"level":30,"time":"2026-04-15T15:37:57.368Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Listening on 127.0.0.1:64596"}
+{"level":30,"time":"2026-04-15T15:37:57.856Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-15T15:37:59.017Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Adding browser to stack: chromium, version: 145.0.7632.6"}
+{"level":30,"time":"2026-04-15T15:37:59.034Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-15T15:37:59.035Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-15T15:37:59.062Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-15T15:37:59.097Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@12fb3ed561415fb3d952f130e9f4e422\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=79c800fa-c728-43c0-9543-6227bcf7e273\"}"}
+{"level":30,"time":"2026-04-15T15:37:59.300Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Setting default timeout for context context=4f661251-5cfc-4b17-a539-3027c88ed367 to 10000"}
+{"level":30,"time":"2026-04-15T15:37:59.301Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Changed active context: context=4f661251-5cfc-4b17-a539-3027c88ed367"}
+{"level":30,"time":"2026-04-15T15:38:00.164Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-15T15:38:00.165Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Changed active page"}
+{"level":30,"time":"2026-04-15T15:38:01.035Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-15T15:38:02.642Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-15T15:38:02.655Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Strict mode is enabled, find Locator with css=form.loginForm input[name=\"username\"] in page."}
+{"level":30,"time":"2026-04-15T15:38:02.928Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-15T15:38:02.956Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-04-15T15:38:02.957Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Strict mode is enabled, find Locator with css=form.loginForm input[name=\"username\"] in page."}
+{"level":30,"time":"2026-04-15T15:38:03.100Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"End of node method fillText"}
+{"level":30,"time":"2026-04-15T15:38:03.136Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-15T15:38:03.138Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Strict mode is enabled, find Locator with css=form.loginForm input[name=\"password\"] in page."}
+{"level":30,"time":"2026-04-15T15:38:03.181Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-15T15:38:03.197Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-04-15T15:38:03.197Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Strict mode is enabled, find Locator with css=form.loginForm input[name=\"password\"] in page."}
+{"level":30,"time":"2026-04-15T15:38:03.233Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"End of node method fillText"}
+{"level":30,"time":"2026-04-15T15:38:03.250Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method click"}
+{"level":30,"time":"2026-04-15T15:38:03.250Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Strict mode is enabled, find Locator with css=form.loginForm input[value=\"Login and get new token\"] in page."}
+{"level":30,"time":"2026-04-15T15:38:03.429Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"End of node method click"}
+{"level":30,"time":"2026-04-15T15:38:06.447Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method evaluateJavascript"}
+{"level":30,"time":"2026-04-15T15:38:06.447Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Strict mode is enabled, find Locator with localStorage.getItem('token') in page."}
+{"level":30,"time":"2026-04-15T15:38:06.453Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Error of node method  evaluateJavascript"}
+================= Original suppressed error =================
+locator.evaluate: Unexpected token "getItem(" while parsing css selector "localStorage.getItem('token')". Did you mean to CSS.escape it?
+Call log:
+[2m  - waiting for localStorage.getItem('token')[22m
+
+    at getJSResult (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:11709:28)
+    at async evaluateJavascript (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:11713:21)
+    at async PlaywrightServer.evaluateJavascript (C:\Users\Koti\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js:13678:28) {
+  name: 'Error'
+}
+=============================================================
+{"level":30,"time":"2026-04-15T15:38:06.464Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-15T15:38:06.465Z","pid":31372,"hostname":"LAPTOP-N85A50PD","Take screenshot with options: ":{"path":"C:\\Users\\Koti\\Desktop\\hyte web1\\backend week6\\outputs\\browser\\screenshot\\fail-screenshot-1.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
+{"level":30,"time":"2026-04-15T15:38:06.875Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-15T15:38:24.059Z","pid":31372,"hostname":"LAPTOP-N85A50PD","msg":"Removed page=91a55487-cdb4-48ab-8121-d561c847b025 from context=4f661251-5cfc-4b17-a539-3027c88ed367 page stack"}
