@@ -139,3 +139,25 @@ Ajon jälkeen outputs-kansioon tuli:
 
 Raportit avautuvat selaimessa ja niistä näkee helposti testin tulokset.
 
+
+## Tehtävä 9 backend testaus
+
+Tässä tehtävässä testattiin taustapalvelimen toimintaa RequestsLibrarylla.
+
+### Mitä tehtiin
+
+- Testattiin taustapalvelimen toimintaa RequestsLibrarylla.
+
+- Testeissä lähetettiin HTTP-pyyntöjä backendin API-reiteille.  
+
+- Testeissä tarkistettiin API:n perusreitti ja kirjautuminen.
+
+### Testi suoritettiin komennolla
+
+
+robot -d outputs test/api_test.robot
+
+## Kommentit 
+
+- Testit toimivat oikein
+-  Backend palautti onnistuneen statuskoodin molemmissa testeissä.
